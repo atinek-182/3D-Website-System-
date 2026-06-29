@@ -47,7 +47,7 @@ Select:
 ## Step 4 — Create Design System
 
 Define:
-- colors
+- colors (defining Tailwind v4 `@theme` colors/design tokens)
 - typography
 - spacing
 - border radius
@@ -461,8 +461,8 @@ Use this before large edits:
 ### 2. New Project Setup Workflow
 1. Initialize the project: `npx create-vite@latest my-site -- --template react-ts`.
 2. Check `.codegraph` directory; run `codegraph init` in the terminal immediately.
-3. Install core dependencies (React Three Fiber, GSAP, Motion, Lenis). Recommend Node 24 LTS.
-4. Create the design tokens file (`src/styles/theme.css`).
+3. Install core dependencies (React Three Fiber, GSAP, Motion, Lenis) and Tailwind CSS setup (tailwindcss, @tailwindcss/vite). Recommend Node 24 LTS.
+4. Set up Tailwind CSS v4 in `vite.config.ts` and import it in the main CSS file using CSS-first variables/tokens configuration.
 5. Set up local directories: `.agents/skills/` and copy local skills if needed.
 
 ### 3. Spline-to-React Workflow
@@ -500,3 +500,9 @@ Use this before large edits:
 1. Immediately upon downloading an external model, image, or video, open `asset-license-log.md`.
 2. Document Name, Source, URL, License details, Attribution instructions, Optimization methods, and Keep/Remove decision.
 3. Never use or check-in models with missing metadata.
+
+### 9. Styling & Tailwind CSS Workflow
+1. Ensure Tailwind CSS is used as the default styling system for layouts, spacing, responsiveness, colors, typography, flexbox/grid, and standard component styling.
+2. Only write custom CSS or CSS Modules for complex pseudo-elements, WebGL wrappers, special keyframes, shader/canvas-specific styling, or advanced visual animations.
+3. Do not force Tailwind into canvas-specific containers if CSS Modules are cleaner.
+4. Propose an explanation whenever CSS Modules are chosen instead of Tailwind CSS.

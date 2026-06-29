@@ -22,7 +22,41 @@ npm install
 
 ---
 
-## 3. Installing Core Libraries
+## 3. Tailwind CSS v4 Vite Setup
+
+Install Tailwind CSS v4 and the official Vite plugin as project-level dependencies:
+
+```bash
+npm install tailwindcss @tailwindcss/vite
+```
+
+Configure Tailwind CSS in your `vite.config.ts`:
+
+```typescript
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import tailwindcss from "@tailwindcss/vite";
+
+export default defineConfig({
+  plugins: [react(), tailwindcss()],
+});
+```
+
+Import Tailwind in your main CSS entry point (e.g., `src/index.css`):
+
+```css
+@import "tailwindcss";
+```
+
+### Key Integration Guidelines
+- **Project-Level Dependency**: Tailwind is a project-level dependency, not a global installation.
+- **shadcn/ui Compatibility**: shadcn/ui expects a Tailwind-compatible setup. Define customizable theme values inside `@theme` blocks.
+- **Design Tokens**: Standard CSS variables (like `--color-primary`) should be configured inside the `@theme` directive in the CSS-first Tailwind file.
+- **CSS Modules Usage**: CSS Modules are still permitted for complex WebGL/canvas wrappers, custom shaders, and technical layout overlays where utility classes would become unreadable.
+
+---
+
+## 4. Installing Core Libraries
 
 Install the baseline libraries required for premium 3D animations, styling, and icons:
 
@@ -33,7 +67,7 @@ npm install three @react-three/fiber @react-three/drei gsap @gsap/react motion l
 
 ---
 
-## 4. Optional / Specialized Packages
+## 5. Optional / Specialized Packages
 
 Only install these if specifically requested in the approved project brief:
 
@@ -60,7 +94,7 @@ npx gltfjsx public/models/model.glb
 
 ---
 
-## 5. UI Component Primitives (shadcn/ui)
+## 6. UI Component Primitives (shadcn/ui)
 
 Use `shadcn` for generic structural primitives, and style them to match the project aesthetics:
 
@@ -74,7 +108,7 @@ npx shadcn@latest add button card dialog sheet tabs accordion tooltip input labe
 
 ---
 
-## 6. Integration Rules
+## 7. Integration Rules
 
 - **Use Context7 First**: Before using R3F hooks, Drei loaders, GSAP scroll triggers, or Motion spring configurations, query documentation to ensure exact syntax is followed.
 - **Tidy Imports**: Standardize UI animation imports from `motion/react` rather than the old `framer-motion` namespace.

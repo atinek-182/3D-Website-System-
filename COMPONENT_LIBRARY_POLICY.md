@@ -144,6 +144,40 @@ Do not leave default styling if the website is supposed to feel premium.
 
 ---
 
+# Styling & Tailwind CSS Policy
+
+Tailwind CSS is the default styling system for React/Vite 3D website projects.
+
+Use Tailwind for:
+- layout
+- spacing
+- responsive design
+- typography utilities
+- color utilities
+- flex/grid
+- z-index/layering
+- common UI styling
+- shadcn/ui integration
+- fast UI iteration
+- dark/light variants
+
+Use CSS Modules or custom CSS only for:
+- complex pseudo-elements
+- advanced masks
+- WebGL/canvas wrappers
+- technical grid overlays
+- special keyframes
+- shader/canvas-specific styling
+- advanced animation styling
+- scoped styles that would become unreadable in Tailwind
+- one-off visual systems where utility classes become class soup
+
+Do not avoid Tailwind by default.
+Do not force Tailwind into shader/canvas-specific wrappers if CSS Modules are cleaner.
+Whenever the agent chooses CSS Modules instead of Tailwind, it must explain why.
+
+---
+
 # 3D Component Reuse
 
 Use existing helpers for:

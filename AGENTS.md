@@ -105,6 +105,7 @@ Use this unless the project demands otherwise:
 - React
 - Vite
 - TypeScript if the project is serious
+- Tailwind CSS
 - Three.js
 - React Three Fiber for React-based 3D
 - Drei for helpers
@@ -191,6 +192,38 @@ Do not start implementation until this exists.
 - Use Theatre.js for cinematic camera/object sequences where visual keyframing makes sense.
 - Do not use multiple animation systems for the same element unless there is a strong reason.
 
+### Styling & Tailwind CSS Rules
+
+Tailwind CSS is the default styling system for React/Vite 3D website projects.
+
+Use Tailwind for:
+- layout
+- spacing
+- responsive design
+- typography utilities
+- color utilities
+- flex/grid
+- z-index/layering
+- common UI styling
+- shadcn/ui integration
+- fast UI iteration
+- dark/light variants
+
+Use CSS Modules or custom CSS only for:
+- complex pseudo-elements
+- advanced masks
+- WebGL/canvas wrappers
+- technical grid overlays
+- special keyframes
+- shader/canvas-specific styling
+- advanced animation styling
+- scoped styles that would become unreadable in Tailwind
+- one-off visual systems where utility classes become class soup
+
+Do not avoid Tailwind by default.
+Do not force Tailwind into shader/canvas-specific wrappers if CSS Modules are cleaner.
+Whenever the agent chooses CSS Modules instead of Tailwind, it must explain why.
+
 ---
 
 ## Milestone Rule
@@ -236,10 +269,36 @@ When executing tasks or responding to prompts, follow this strict tool order:
 2. **CodeGraph Exploration**: For repository navigation, codebase architecture review, and identifying shared components/relationships, use CodeGraph (`codegraph explore` or `codegraph_explore` MCP). Always keep CodeGraph's `.codegraph` index active and updated.
 3. **Context7 Documentation**: Before writing code for any library (Three.js, React Three Fiber, Drei, GSAP, Motion, Lenis, Theatre.js, or shadcn/ui), query current documentation using the Context7 MCP. Do not assume or guess API syntax.
 4. **Frontend Design Critique**: Run the `frontend-design` skill before proposing visual direction, typography scales, spacing tokens, or layouts. Avoid generic AI templates.
-5. **Playwright QA**: Run the Playwright browser testing MCP after visual milestones to capture snapshots, verify responsiveness, check clicks/scroll, and check for console/runtime errors.
-6. **Figma extraction**: Only check Figma MCP if the user explicitly shares a Figma design link. Do not run it for conceptual design.
-7. **GitHub read-only**: The GitHub MCP is read-only by default. Write operations (issues, PRs, commits) are strictly forbidden unless explicitly approved by the user. Keep GITHUB_PERSONAL_ACCESS_TOKEN secure.
-8. **Spline Official Export**: For Spline designs, do not use unverified third-party Spline MCPs. Export scenes as official Spline React components (`@splinetool/react-spline` or `@splinetool/runtime`) or GLTF/GLB models.
-9. **21st.dev Magic**: Use the Magic MCP solely as a design inspiration and component variations search engine. Never paste generated components blindly without verifying dependencies, clean styling, and accessibility. Log all components.
-10. **Sequential-Thinking**: Sequential-thinking is optional. If Superpowers is active, Superpowers controls the planning workflow. Sequential-thinking should only be used for complex debugging or deep logic reasoning.
-11. **No Blind Installs**: Never install unverified packages, optional libraries, or dependencies without answering the package utility questions and securing explicit approval. Do not enable filesystem MCP globally.
+5. **Tailwind CSS Expert**: Use the `tailwind-patterns` skill to translate visual designs and tokens into practical, optimized Tailwind layouts.
+6. **Playwright QA**: Run the Playwright browser testing MCP after visual milestones to capture snapshots, verify responsiveness, check clicks/scroll, and check for console/runtime errors.
+7. **Figma extraction**: Only check Figma MCP if the user explicitly shares a Figma design link. Do not run it for conceptual design.
+8. **GitHub read-only**: The GitHub MCP is read-only by default. Write operations (issues, PRs, commits) are strictly forbidden unless explicitly approved by the user. Keep GITHUB_PERSONAL_ACCESS_TOKEN secure.
+9. **Spline Official Export**: For Spline designs, do not use unverified third-party Spline MCPs. Export scenes as official Spline React components (`@splinetool/react-spline` or `@splinetool/runtime`) or GLTF/GLB models.
+10. **21st.dev Magic**: Use the Magic MCP solely as a design inspiration and component variations search engine. Never paste generated components blindly without verifying dependencies, clean styling, and accessibility. Log all components.
+11. **Sequential-Thinking**: Sequential-thinking is optional. If Superpowers is active, Superpowers controls the planning workflow. Sequential-thinking should only be used for complex debugging or deep logic reasoning.
+12. **No Blind Installs**: Never install unverified packages, optional libraries, or dependencies without answering the package utility questions and securing explicit approval. Do not enable filesystem MCP globally.
+
+### Tailwind CSS Expert Skill Usage
+
+Use the Tailwind CSS Expert skill when:
+- creating layout systems
+- converting CSS Modules to Tailwind
+- designing responsive sections
+- integrating shadcn/ui
+- building design tokens with Tailwind
+- debugging Tailwind class conflicts
+- improving messy class names
+- deciding between Tailwind and CSS Modules
+
+Do not use the Tailwind skill to:
+- blindly convert all CSS Modules
+- replace shader/canvas-specific styling
+- create huge unreadable class strings
+- override frontend-design visual direction
+- override QA_AND_REVIEW.md
+
+Skill execution tool order:
+1. `frontend-design` skill decides the visual direction.
+2. `tailwind-patterns` (Tailwind CSS Expert) converts that direction into practical Tailwind structure.
+3. `context7` verifies current Tailwind setup/API if needed.
+4. `playwright` verifies the browser result.

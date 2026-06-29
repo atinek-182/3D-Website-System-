@@ -69,6 +69,8 @@ Check:
 - no uncleaned GSAP timelines
 - no Three.js resource leaks
 - no layout shift from loading assets
+- Tailwind CSS is used as default styling for layouts, spacing, colors, and typography unless custom CSS/CSS Modules are explicitly justified with an explanation
+- No arbitrary Tailwind utility classes used (prefer design tokens defined in `@theme`)
 
 ---
 
@@ -306,3 +308,8 @@ Before approving major architecture changes, check:
 - Confirm any code adapted from 21st.dev has been customized.
 - Verify that unnecessary tailwind classes or third-party dependencies were removed from the imported code.
 - Verify the component integration is logged in `custom-components-log.md`.
+
+### 11. Tailwind CSS Styling Gate
+- Verify that Tailwind CSS is the default styling system for layout, spacing, responsiveness, typography, colors, and common UI styling.
+- Confirm any use of CSS Modules or custom CSS is restricted to WebGL wrappers, complex canvas elements, shaders, or custom keyframe systems, and is documented with an explicit explanation.
+- Verify no arbitrary values (e.g., `bg-[#123456]` or `h-[512px]`) are used where `@theme` custom design tokens should be applied.

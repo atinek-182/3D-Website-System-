@@ -380,7 +380,11 @@ Rules:
 - **Location**: Installed globally under `C:\Users\HP\.gemini\skills\frontend-design\SKILL.md`.
 - **Purpose**: Establishes high-fidelity styling tokens, layout principles, typography scales, and visual critiques.
 
-### 3. MCP Config Path: `C:\Users\HP\.gemini\config\mcp_config.json`
+### 3. Tailwind CSS Expert Skill
+- **Location**: Installed globally under `C:\Users\HP\.gemini\skills\tailwind-patterns\SKILL.md`.
+- **Purpose**: Enforces Tailwind CSS v4 design principles, CSS-first configurations, and modern UI patterns.
+
+### 4. MCP Config Path: `C:\Users\HP\.gemini\config\mcp_config.json`
 - **Active MCP Servers**:
   - `context7`: Query current documentation and version-specific API details.
   - `codegraph`: Provide stdio codebase indexing.
@@ -411,3 +415,34 @@ Rules:
 - Prefer CC0 and free resources like Poly Haven (textures, HDRIs), ambientCG (PBR materials), Quaternius (low-poly models), Kenney (game prototypes), and Khronos glTF samples.
 - Strictly avoid copyrighted brands, rip-off assets, weapon-focused themes, adult themes, or gambling assets.
 - Log every downloaded asset in `asset-license-log.md` using the standard format.
+
+### 5. Tailwind CSS & Styling Policy
+- **Tailwind CSS** is the default styling system for React/Vite 3D website projects.
+- **Use Tailwind for**: layout, spacing, responsive design, typography utilities, color utilities, flex/grid, z-index/layering, common UI styling, shadcn/ui integration, fast UI iteration, and dark/light variants.
+- **Use CSS Modules or custom CSS only for**: complex pseudo-elements, advanced masks, WebGL/canvas wrappers, technical grid overlays, special keyframes, shader/canvas-specific styling, advanced animation styling, scoped styles that would become unreadable in Tailwind, or one-off visual systems where utility classes become class soup.
+- **Rules**:
+  - Do not avoid Tailwind by default.
+  - Do not force Tailwind into shader/canvas-specific wrappers if CSS Modules are cleaner.
+  - Whenever the agent chooses CSS Modules instead of Tailwind, it must explain why.
+
+### 6. Tailwind CSS Expert Skill Usage Rules
+- **Use the Tailwind CSS Expert skill when**:
+  - creating layout systems
+  - converting CSS Modules to Tailwind
+  - designing responsive sections
+  - integrating shadcn/ui
+  - building design tokens with Tailwind
+  - debugging Tailwind class conflicts
+  - improving messy class names
+  - deciding between Tailwind and CSS Modules
+- **Do not use the Tailwind skill to**:
+  - blindly convert all CSS Modules
+  - replace shader/canvas-specific styling
+  - create huge unreadable class strings
+  - override frontend-design visual direction
+  - override QA_AND_REVIEW.md
+- **Tool Order**:
+  1. `frontend-design` skill decides the visual direction.
+  2. `tailwind-patterns` (Tailwind CSS Expert) converts that direction into practical Tailwind structure.
+  3. `context7` verifies current Tailwind setup/API if needed.
+  4. `playwright` verifies the browser result.
