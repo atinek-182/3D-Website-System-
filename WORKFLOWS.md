@@ -509,28 +509,77 @@ Use this before large edits:
 
 ---
 
-## Open Design Workflow Rule
+## Open Design Agent Control Policy
 
-Before visually important implementation, check whether Open Design exploration is needed.
+Antigravity is the main controller.
 
-Use workflows/open-design.workflow.md when:
-* starting a premium hero
-* starting a landing page
-* redesigning a major section
-* visual direction is not locked
-* user references need to become design directions
+Preferred execution:
 
-Do not use Open Design for minor bug fixes or purely technical tasks.
+* Main agent: Antigravity
+* Main model: Gemini 3.5 Flash High, if available in the current Antigravity session
+* Open Design: design/artifact generation tool only
 
-Open Design output must be converted into:
-* layout rules
-* typography rules
-* color tokens
-* spacing rules
-* motion rules
-* 3D scene requirements
-* asset requirements
-* implementation risks
-* QA checklist
+Open Design must not:
 
-Stop before implementation until the user approves the direction.
+* run every detected agent
+* auto-select multiple agents
+* start autonomous multi-agent loops
+* use unrelated skills/plugins
+* run long exploratory chains
+* continue generating without user approval
+* decide final implementation architecture
+
+Open Design may:
+
+* list available skills/design systems
+* create 2–3 design directions from a written brief
+* generate artifact previews
+* expose design-system ideas
+* help compare visual options
+
+Before using Open Design, the agent must specify:
+
+1. exact purpose
+2. selected Open Design skill/design system
+3. selected agent if Open Design requires one
+4. number of design options
+5. output type
+6. stop condition
+7. whether user approval is required
+
+Default Open Design constraints:
+
+* options: maximum 2
+* agent: Antigravity if supported
+* model: current Antigravity model / Gemini 3.5 Flash High if available
+* no multi-agent rotation
+* no autonomous loops
+* no plugin chains unless approved
+* no code implementation
+* stop after returning options and critique
+
+If Open Design only supports another agent internally:
+
+* ask user before running
+* explain which agent will be used
+* do not run automatically
+
+If Open Design starts using multiple agents unexpectedly:
+
+* stop the run
+* report the issue
+* ask user before continuing
+
+Tool order:
+
+1. Antigravity reads project files.
+2. Antigravity creates Open Design brief.
+3. Open Design generates limited artifact/design options.
+4. Antigravity critiques results using frontend-design and QA rules.
+5. User chooses direction.
+6. Antigravity implements later with React/Vite/Tailwind/R3F.
+
+Final rule:
+Open Design explores design.
+Antigravity controls the workflow.
+User approval gates implementation.

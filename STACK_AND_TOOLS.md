@@ -449,41 +449,77 @@ Rules:
 
 ---
 
-## Open Design
+## Open Design Agent Control Policy
 
-Role:
-Open Design is used for design exploration, artifact previews, and visual direction before implementation.
+Antigravity is the main controller.
 
-Use for:
-* design exploration
-* artifact previews
-* multiple visual options
-* design system experiments
-* typography/layout exploration
-* motion direction
-* hero/landing page design drafts
-* reference-to-design translation
+Preferred execution:
 
-Do not use for:
-* final production code without inspection
-* replacing Tailwind/R3F architecture
-* bypassing Q&A
-* bypassing references
-* replacing Playwright QA
-* replacing CodeGraph architecture review
-* copying brand identities
-* importing unreviewed assets
+* Main agent: Antigravity
+* Main model: Gemini 3.5 Flash High, if available in the current Antigravity session
+* Open Design: design/artifact generation tool only
 
-Decision:
-For premium hero and landing page work, Open Design should usually be used before coding unless the user says to skip it.
+Open Design must not:
 
-Desktop requirement:
-Open Design desktop app must remain open for active context-aware actions.
-If Open Design returns inactive context, ask the user to open/select the relevant project in Open Design.
+* run every detected agent
+* auto-select multiple agents
+* start autonomous multi-agent loops
+* use unrelated skills/plugins
+* run long exploratory chains
+* continue generating without user approval
+* decide final implementation architecture
+
+Open Design may:
+
+* list available skills/design systems
+* create 2–3 design directions from a written brief
+* generate artifact previews
+* expose design-system ideas
+* help compare visual options
+
+Before using Open Design, the agent must specify:
+
+1. exact purpose
+2. selected Open Design skill/design system
+3. selected agent if Open Design requires one
+4. number of design options
+5. output type
+6. stop condition
+7. whether user approval is required
+
+Default Open Design constraints:
+
+* options: maximum 2
+* agent: Antigravity if supported
+* model: current Antigravity model / Gemini 3.5 Flash High if available
+* no multi-agent rotation
+* no autonomous loops
+* no plugin chains unless approved
+* no code implementation
+* stop after returning options and critique
+
+If Open Design only supports another agent internally:
+
+* ask user before running
+* explain which agent will be used
+* do not run automatically
+
+If Open Design starts using multiple agents unexpectedly:
+
+* stop the run
+* report the issue
+* ask user before continuing
 
 Tool order:
-1. frontend-design creates visual critique/direction.
-2. Open Design generates design options/artifacts.
-3. Tailwind CSS Expert translates chosen direction into Tailwind architecture if installed.
-4. Context7 verifies implementation APIs.
-5. Playwright verifies final browser result.
+
+1. Antigravity reads project files.
+2. Antigravity creates Open Design brief.
+3. Open Design generates limited artifact/design options.
+4. Antigravity critiques results using frontend-design and QA rules.
+5. User chooses direction.
+6. Antigravity implements later with React/Vite/Tailwind/R3F.
+
+Final rule:
+Open Design explores design.
+Antigravity controls the workflow.
+User approval gates implementation.

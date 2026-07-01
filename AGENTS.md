@@ -305,43 +305,77 @@ Skill execution tool order:
 
 ---
 
-## Open Design Design-First Policy
+## Open Design Agent Control Policy
 
-Open Design is the design-exploration layer for visually important work.
+Antigravity is the main controller.
 
-Use Open Design before coding when:
-- building a premium hero section
-- building a landing page
-- creating a major visual redesign
-- the visual direction is unclear
-- multiple design options would help
-- typography/layout/motion direction needs exploration
-- design system/artifact preview would improve the final result
+Preferred execution:
 
-Skip Open Design when:
-- the task is a bug fix
-- the task is purely technical
-- the design direction is already locked
-- the user asks to skip design exploration
-- the change is minor
-- speed matters more than visual exploration
+* Main agent: Antigravity
+* Main model: Gemini 3.5 Flash High, if available in the current Antigravity session
+* Open Design: design/artifact generation tool only
 
-Required order for premium website work:
-1. PROJECT_QNA.md gathers requirements.
-2. references/ defines user taste if available.
-3. frontend-design skill creates design critique and direction.
-4. Open Design generates 2–3 visual directions or artifact previews.
-5. User selects or edits a direction.
-6. Antigravity converts the selected direction into an implementation plan.
-7. Context7 verifies library usage.
-8. Implementation happens in React/Vite/TypeScript/Tailwind/R3F.
-9. Playwright MCP verifies browser output.
-10. CodeGraph reviews architecture when relevant.
-11. QA_AND_REVIEW.md produces final review.
+Open Design must not:
 
-Rules:
-- Open Design output is draft direction, not final production truth.
-- Do not paste generated code blindly.
-- Extract principles, tokens, layout, motion rules, and asset requirements.
-- Final implementation must follow this system’s stack and QA rules.
-- Open Design does not override AGENTS.md.
+* run every detected agent
+* auto-select multiple agents
+* start autonomous multi-agent loops
+* use unrelated skills/plugins
+* run long exploratory chains
+* continue generating without user approval
+* decide final implementation architecture
+
+Open Design may:
+
+* list available skills/design systems
+* create 2–3 design directions from a written brief
+* generate artifact previews
+* expose design-system ideas
+* help compare visual options
+
+Before using Open Design, the agent must specify:
+
+1. exact purpose
+2. selected Open Design skill/design system
+3. selected agent if Open Design requires one
+4. number of design options
+5. output type
+6. stop condition
+7. whether user approval is required
+
+Default Open Design constraints:
+
+* options: maximum 2
+* agent: Antigravity if supported
+* model: current Antigravity model / Gemini 3.5 Flash High if available
+* no multi-agent rotation
+* no autonomous loops
+* no plugin chains unless approved
+* no code implementation
+* stop after returning options and critique
+
+If Open Design only supports another agent internally:
+
+* ask user before running
+* explain which agent will be used
+* do not run automatically
+
+If Open Design starts using multiple agents unexpectedly:
+
+* stop the run
+* report the issue
+* ask user before continuing
+
+Tool order:
+
+1. Antigravity reads project files.
+2. Antigravity creates Open Design brief.
+3. Open Design generates limited artifact/design options.
+4. Antigravity critiques results using frontend-design and QA rules.
+5. User chooses direction.
+6. Antigravity implements later with React/Vite/Tailwind/R3F.
+
+Final rule:
+Open Design explores design.
+Antigravity controls the workflow.
+User approval gates implementation.
