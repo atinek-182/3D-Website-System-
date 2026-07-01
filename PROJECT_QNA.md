@@ -226,3 +226,30 @@ If user refuses detailed Q&A, assume:
 - Premium editorial dark mode
 - 3D should support the hero concept
 - Performance should be safe for mid-range laptop
+
+---
+
+## Open Design Questions
+
+Ask these when visual quality matters:
+
+1. Do you want Open Design exploration before coding?
+2. Should Open Design generate 2 or 3 design directions?
+3. Should Open Design output be artifact preview only or code handoff?
+4. What should Open Design explore?
+   * hero section
+   * landing page
+   * typography system
+   * layout system
+   * motion direction
+   * design system
+   * visual identity
+5. Do you already have references to guide Open Design?
+6. Should Open Design use dark, light, or mixed direction?
+7. What visual patterns must Open Design avoid?
+8. Should generated code be treated as inspiration only?
+9. Do you want approval before implementing any Open Design output?
+10. Should Open Design use a specific skill or design system?
+
+Default:
+For premium hero sections, landing pages, and visual redesigns, use Open Design unless the user says to skip it.

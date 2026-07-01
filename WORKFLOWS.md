@@ -506,3 +506,31 @@ Use this before large edits:
 2. Only write custom CSS or CSS Modules for complex pseudo-elements, WebGL wrappers, special keyframes, shader/canvas-specific styling, or advanced visual animations.
 3. Do not force Tailwind into canvas-specific containers if CSS Modules are cleaner.
 4. Propose an explanation whenever CSS Modules are chosen instead of Tailwind CSS.
+
+---
+
+## Open Design Workflow Rule
+
+Before visually important implementation, check whether Open Design exploration is needed.
+
+Use workflows/open-design.workflow.md when:
+* starting a premium hero
+* starting a landing page
+* redesigning a major section
+* visual direction is not locked
+* user references need to become design directions
+
+Do not use Open Design for minor bug fixes or purely technical tasks.
+
+Open Design output must be converted into:
+* layout rules
+* typography rules
+* color tokens
+* spacing rules
+* motion rules
+* 3D scene requirements
+* asset requirements
+* implementation risks
+* QA checklist
+
+Stop before implementation until the user approves the direction.

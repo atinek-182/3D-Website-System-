@@ -313,3 +313,29 @@ Before approving major architecture changes, check:
 - Verify that Tailwind CSS is the default styling system for layout, spacing, responsiveness, typography, colors, and common UI styling.
 - Confirm any use of CSS Modules or custom CSS is restricted to WebGL wrappers, complex canvas elements, shaders, or custom keyframe systems, and is documented with an explicit explanation.
 - Verify no arbitrary values (e.g., `bg-[#123456]` or `h-[512px]`) are used where `@theme` custom design tokens should be applied.
+
+---
+
+## Open Design QA Gate
+
+When Open Design is used, check:
+
+* Did it follow the project brief?
+* Did it reflect user references/taste?
+* Does it feel original?
+* Is typography strong?
+* Is layout readable?
+* Is motion direction meaningful?
+* Is 3D direction justified?
+* Is it implementable in React/Vite/R3F/Tailwind?
+* Does it avoid generic AI patterns?
+* Does it avoid copying references?
+* Are asset/license risks identified?
+* Are performance risks identified?
+* Was the user asked to approve the selected direction?
+
+Open Design output must not be treated as final until:
+
+* user selects a direction
+* implementation plan is created
+* final site passes Playwright QA

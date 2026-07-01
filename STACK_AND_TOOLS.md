@@ -446,3 +446,44 @@ Rules:
   2. `tailwind-patterns` (Tailwind CSS Expert) converts that direction into practical Tailwind structure.
   3. `context7` verifies current Tailwind setup/API if needed.
   4. `playwright` verifies the browser result.
+
+---
+
+## Open Design
+
+Role:
+Open Design is used for design exploration, artifact previews, and visual direction before implementation.
+
+Use for:
+* design exploration
+* artifact previews
+* multiple visual options
+* design system experiments
+* typography/layout exploration
+* motion direction
+* hero/landing page design drafts
+* reference-to-design translation
+
+Do not use for:
+* final production code without inspection
+* replacing Tailwind/R3F architecture
+* bypassing Q&A
+* bypassing references
+* replacing Playwright QA
+* replacing CodeGraph architecture review
+* copying brand identities
+* importing unreviewed assets
+
+Decision:
+For premium hero and landing page work, Open Design should usually be used before coding unless the user says to skip it.
+
+Desktop requirement:
+Open Design desktop app must remain open for active context-aware actions.
+If Open Design returns inactive context, ask the user to open/select the relevant project in Open Design.
+
+Tool order:
+1. frontend-design creates visual critique/direction.
+2. Open Design generates design options/artifacts.
+3. Tailwind CSS Expert translates chosen direction into Tailwind architecture if installed.
+4. Context7 verifies implementation APIs.
+5. Playwright verifies final browser result.

@@ -302,3 +302,46 @@ Skill execution tool order:
 2. `tailwind-patterns` (Tailwind CSS Expert) converts that direction into practical Tailwind structure.
 3. `context7` verifies current Tailwind setup/API if needed.
 4. `playwright` verifies the browser result.
+
+---
+
+## Open Design Design-First Policy
+
+Open Design is the design-exploration layer for visually important work.
+
+Use Open Design before coding when:
+- building a premium hero section
+- building a landing page
+- creating a major visual redesign
+- the visual direction is unclear
+- multiple design options would help
+- typography/layout/motion direction needs exploration
+- design system/artifact preview would improve the final result
+
+Skip Open Design when:
+- the task is a bug fix
+- the task is purely technical
+- the design direction is already locked
+- the user asks to skip design exploration
+- the change is minor
+- speed matters more than visual exploration
+
+Required order for premium website work:
+1. PROJECT_QNA.md gathers requirements.
+2. references/ defines user taste if available.
+3. frontend-design skill creates design critique and direction.
+4. Open Design generates 2–3 visual directions or artifact previews.
+5. User selects or edits a direction.
+6. Antigravity converts the selected direction into an implementation plan.
+7. Context7 verifies library usage.
+8. Implementation happens in React/Vite/TypeScript/Tailwind/R3F.
+9. Playwright MCP verifies browser output.
+10. CodeGraph reviews architecture when relevant.
+11. QA_AND_REVIEW.md produces final review.
+
+Rules:
+- Open Design output is draft direction, not final production truth.
+- Do not paste generated code blindly.
+- Extract principles, tokens, layout, motion rules, and asset requirements.
+- Final implementation must follow this system’s stack and QA rules.
+- Open Design does not override AGENTS.md.

@@ -67,3 +67,32 @@ When starting a session or bootstrapping a project, prompt the agent with:
 ```text
 You are my Antigravity creative developer. Check agy plugin list to confirm superpowers is active, and read global frontend-design skill instructions. Perform a CodeGraph index update, review local documents, and let's align on the project brief before writing code.
 ```
+
+---
+
+## Open Design
+
+Role:
+Open Design is the design exploration and artifact generation layer before final implementation.
+
+Current setup:
+* Open Design MCP is connected through packaged app sidecar.
+* Desktop app must remain open for active context-aware actions.
+* Active context may expire after user inactivity.
+
+Use:
+* design exploration
+* artifact previews
+* multiple visual directions
+* design system experiments
+* layout/typography/motion drafts
+
+Do not use:
+* as replacement for local project rules
+* as replacement for final implementation architecture
+* as replacement for Playwright QA
+* as replacement for CodeGraph review
+* as source of blindly pasted code
+
+Open Design creates direction.
+The Antigravity system builds the final website.

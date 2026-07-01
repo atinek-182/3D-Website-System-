@@ -283,3 +283,26 @@ The following elements must never be imported from generic packages and must be 
     *   Verify keyboard navigation, focus indicator states, and screen reader elements.
     *   Register every integrated component in `component-sources/custom-components-log.md`.
 *   **First Choice**: Custom styling over shadcn primitives remains the preferred choice for landing page primitives. 21st.dev is a secondary source of ideas.
+
+---
+
+## Open Design Component / Artifact Policy
+
+Open Design artifacts may suggest components, layouts, and visuals.
+
+Before using any Open Design output:
+
+* inspect the generated structure
+* check dependencies
+* convert styling to project Tailwind/tokens where possible
+* preserve accessibility
+* remove generic or excessive design patterns
+* log reused/adapted components in component-sources/custom-components-log.md
+* log external assets in assets-briefs/asset-license-log.md
+
+Do not:
+
+* paste generated components blindly
+* import unknown dependencies without review
+* let Open Design override shadcn/Radix primitives for standard UI
+* let Open Design override custom R3F for brand-defining 3D scenes
